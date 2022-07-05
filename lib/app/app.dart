@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:tut_app/presentation/resources/routes_manager.dart';
 import 'package:tut_app/presentation/resources/theme_manager.dart';
 
 
 // ignore: must_be_immutable
 class MyApp extends StatefulWidget {
   // private named constructor
-  MyApp._internal();
-  int appState = 0;
+  const MyApp._internal();
+  
   // single instance -- singleton
-  static final MyApp instance = MyApp._internal();
+  static const MyApp instance = MyApp._internal();
 
   // factory for the class instance;
   factory MyApp() => instance;
@@ -21,7 +22,10 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      onGenerateRoute: RouteGenerator.getRoute,
+      initialRoute: Routes.splashRoute,
       theme: getApplicationTheme(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
