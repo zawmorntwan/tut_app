@@ -4,6 +4,9 @@ import 'package:tut_app/presentation/login/login.dart';
 import 'package:tut_app/presentation/main/main_view.dart';
 import 'package:tut_app/presentation/onBoarding/onBoarding.dart';
 import 'package:tut_app/presentation/register/register.dart';
+import 'package:tut_app/presentation/resources/color_manager.dart';
+import 'package:tut_app/presentation/resources/strings_manager.dart';
+import 'package:tut_app/presentation/resources/style_manager.dart';
 import 'package:tut_app/presentation/splash/splash.dart';
 import 'package:tut_app/presentation/store_details/store_details.dart';
 
@@ -55,9 +58,12 @@ class RouteGenerator {
 
   static Route<dynamic> unDefinedRoute() {
     return MaterialPageRoute(
-      builder: (_) => const Scaffold(
+      builder: (_) => Scaffold(
         body: Center(
-          child: Text('No Route Found'),
+          child: Text(
+            AppStrings.noRouteFound,
+            style: getBoldTextStyle(color: ColorManager.primary),
+          ),
         ),
       ),
     );
